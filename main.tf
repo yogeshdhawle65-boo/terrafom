@@ -35,13 +35,10 @@ resource "aws_instance" "web" {
 
   user_data = <<-EOF
     #!/bin/bash
-
     apt-get update -y
     apt-get install -y nginx
-
     systemctl enable nginx
     systemctl start nginx
-
     echo "Hello from Terraform EC2" > /var/www/html/index.html
   EOF
 
